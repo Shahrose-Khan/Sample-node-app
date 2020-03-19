@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Add a New Student</h1>
+  <form action="/student/add" method="POST">
+    <div class="form-group">
+      <label for="roll">Roll Number</label>
+      <input
+        type="text"
+        class="form-control"
+        id="roll"
+        name="roll"
+        placeholder="Roll Number"
+      />
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        placeholder="Name"
+      />
+    </div>
+    <input type="submit" name="submit" value="Add" class="btn btn-success" />
+  </form>
+</div>

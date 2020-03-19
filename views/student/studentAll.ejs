@@ -1,0 +1,132 @@
+<div class="container">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2>
+            <b>Students </b>List
+            <a href="/student/add" class="">
+              <i class="fas fa-plus-circle" style="color:green"></i>
+            </a>
+          </h2>
+        </div>
+        <div class="col-sm-4">
+          <div class="search-box">
+            <i class="material-icons">&#xE8B6;</i>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search&hellip;"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8"></div>
+        <div class="col-sm-4 ">
+          <h1>
+            <a href="/student/report/all" class="float-right" target="blank">
+              <i class="fas fa-file-pdf" style="color:rgb(184, 75, 12)"></i>
+            </a>
+          </h1>
+        </div>
+      </div>
+    </div>
+    <% if(student_add_success_msg != ''){ %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= student_add_success_msg %>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %> <% if(student_del_success_msg != ''){ %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= student_del_success_msg %>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %> <% if(student_update_success_msg != ''){ %>
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+      <%= student_update_success_msg %>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <% } %>
+    <table class="table table-striped table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Roll Number <i class="fa fa-sort"></i></th>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if(typeof students != 'undefined'){ %> <%
+        students.forEach(function(student) { %>
+        <tr>
+          <td><%= student.roll%></td>
+          <td><%= student.name%></td>
+          <td>
+            <a
+              href="/student/<%=student._id%>"
+              class="view"
+              title="View"
+              data-toggle="tooltip"
+              ><i class="material-icons">&#xE417;</i></a
+            >
+            <a
+              href="/student/update/<%=student._id%>"
+              class="edit"
+              title="Edit"
+              data-toggle="tooltip"
+              ><i class="material-icons">&#xE254;</i></a
+            >
+            <a
+              href="/student/delete/<%=student._id%>"
+              class="delete"
+              title="Delete"
+              data-toggle="tooltip"
+              ><i class="material-icons">&#xE872;</i></a
+            >
+          </td>
+        </tr>
+        <% }); %> <% } %>
+      </tbody>
+    </table>
+    <div class="clearfix">
+      <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+      <ul class="pagination">
+        <li class="page-item disabled">
+          <a href="#"><i class="fa fa-angle-double-left"></i></a>
+        </li>
+        <li class="page-item"><a href="#" class="page-link">1</a></li>
+        <li class="page-item"><a href="#" class="page-link">2</a></li>
+        <li class="page-item active"><a href="#" class="page-link">3</a></li>
+        <li class="page-item"><a href="#" class="page-link">4</a></li>
+        <li class="page-item"><a href="#" class="page-link">5</a></li>
+        <li class="page-item">
+          <a href="#" class="page-link"
+            ><i class="fa fa-angle-double-right"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

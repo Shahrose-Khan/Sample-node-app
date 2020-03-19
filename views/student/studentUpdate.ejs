@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Update Student</h1>
+  <form action="/student/update/<%=student._id%>" method="POST">
+    <div class="form-group">
+      <label for="roll">Roll Number</label>
+      <input type="text" class="form-control" id="roll" name="roll"
+      placeholder="Roll Number" value = '<%= typeof student.roll != 'undefined'
+      ? student.roll : '' %>' />
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name"
+      placeholder="Name" value = '<%= typeof student.name != 'undefined' ?
+      student.name : '' %>' />
+    </div>
+    <input type="submit" name="submit" value="Update" class="btn btn-success" />
+  </form>
+  <br />
+  <a href="/student/all" class="">
+    <i class="fas fa-home" style="color:green">View List</i>
+  </a>
+</div>
